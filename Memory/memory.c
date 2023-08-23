@@ -100,7 +100,7 @@ uint8_t * my_memzero(uint8_t * src, uint32_t length)
 
 uint8_t * my_reverse(uint8_t * src, uint32_t length)
 {
-  uint8_t* src_ptr_l;
+  uint8_t* src_ptr_l= src;
   uint8_t temp;
   uint32_t index_i= 0;
   uint32_t last_element_index= length-1;

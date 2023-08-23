@@ -46,3 +46,20 @@ char compare_str(char* str1, char* str2)
         }
     }
 }
+
+char* str_parse(char* src_str, uint32_t left, uint32_t right)
+{
+    uint32_t dst_str_length= right - left + 1;
+    uint32_t index_i= left;
+
+    char* dst_str_ptr= (char*)malloc((dst_str_length+1) * sizeof(char));
+    while((index_i <= right) && (src_str[index_i] != '\0'))
+    {
+        *dst_str_ptr= src_str[index_i];
+        dst_str_ptr++;
+        index_i++;
+    }
+    *dst_str_ptr= '\0';
+
+    return (dst_str_ptr-dst_str_length);
+}
