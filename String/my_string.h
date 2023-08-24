@@ -11,7 +11,7 @@
  *
  * @return return the length of string.
  */
-uint32_t str_length(char* str);
+uint32_t str_length(const char* str);
 
 /**
  * @brief Compares two strings and returns a flag.
@@ -23,7 +23,7 @@ uint32_t str_length(char* str);
  *
  * @return returns a flag (1 or 0).
  */
-char compare_str(char* str1, char* str2);
+char compare_str(const char* str1, const char* str2);
 
 /**
  * @brief parse the string to put the part from left to right from that string in another
@@ -34,4 +34,8 @@ char compare_str(char* str1, char* str2);
  *
  * @return returns a pointer to the generated string.
  */
-char* str_parse(char* src_str, uint32_t left, uint32_t right);
+char* str_parse(const char* src_str, uint32_t left, uint32_t right);
+
+uint8_t is_str_in_arr(const char* str, char* arr[], uint32_t length);
+
+uint8_t is_char_in_arr(const char ch, char arr[], uint32_t length);

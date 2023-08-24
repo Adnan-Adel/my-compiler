@@ -1,6 +1,6 @@
 #include "my_string.h"
 
-uint32_t str_length(char* str)
+uint32_t str_length(const char* str)
 {
     if(NULL == str)
     {
@@ -17,7 +17,7 @@ uint32_t str_length(char* str)
     }
 }
 
-char compare_str(char* str1, char* str2)
+char compare_str(const char* str1, const char* str2)
 {
     if((NULL == str1) || (NULL == str2))
     {
@@ -47,7 +47,7 @@ char compare_str(char* str1, char* str2)
     }
 }
 
-char* str_parse(char* src_str, uint32_t left, uint32_t right)
+char* str_parse(const char* src_str, uint32_t left, uint32_t right)
 {
     uint32_t dst_str_length= right - left + 1;
     uint32_t index_i= left;
@@ -62,4 +62,46 @@ char* str_parse(char* src_str, uint32_t left, uint32_t right)
     *dst_str_ptr= '\0';
 
     return (dst_str_ptr-dst_str_length);
+}
+
+uint8_t is_str_in_arr(const char* str, char* arr[], uint32_t length)
+{
+    if((NULL == str) || (NULL == arr))
+    {
+        return 0;
+    }
+    else
+    {
+        uint32_t index_i= 0;
+        uint8_t flag= 0;
+        for(index_i= 0; index_i < length; index_i++)
+        {
+            flag= compare_str(str, arr[index_i]);
+            if(flag == 1)
+            {
+                return 1;
+            }
+        }
+        return 0;
+    }
+}
+
+uint8_t is_char_in_arr(const char ch, char arr[], uint32_t length)
+{
+    if(NULL == arr)
+    {
+        return 0;
+    }
+    else
+    {
+        uint32_t index_i= 0;
+        for(index_i= 0; index_i < length; index_i++)
+        {
+            if(ch == arr[index_i])
+            {
+                return 1;
+            }
+        }
+        return 0;
+    }
 }
